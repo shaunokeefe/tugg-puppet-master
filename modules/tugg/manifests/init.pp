@@ -91,7 +91,7 @@ define tugg (
     # Collect static media for the TUGG project
     exec{"static-media":
         command => "/opt/tugg/gigs/bin/django collectstatic --noinput",
-        require => [Exec["buildout"]],
+        require => [Exec["buildout"], Vcsrepo["/opt/tugg/gigs"]],
         creates => "/opt/tugg/gigs/gigs/static",
     }
     
