@@ -144,4 +144,11 @@ define tugg (
         require =>  [Exec['buildout'], 
 		Package['nginx'], File[$nginx_config], Exec['static-media']]
         }
+
+    cron { "searchupdate":
+	command => "/opt/tugg/gigs/bin/django rebuild_index",
+	user    => root,
+	hour    => 1,
+	require =>  Exec['buildout'],
+   }
 }
