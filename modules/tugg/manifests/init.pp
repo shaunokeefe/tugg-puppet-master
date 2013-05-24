@@ -48,7 +48,7 @@ define tugg (
         revision => 'master',
 	owner => $user_name,
 	before => Exec["bootstrap"],
-	requires => User[$user_name],
+	require => User[$user_name],
         }
 
     # MySQL server (replace password)
