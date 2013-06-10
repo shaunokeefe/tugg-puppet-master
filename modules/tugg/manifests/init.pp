@@ -105,7 +105,7 @@ define tugg (
         ensure => file,
         recurse=>true,
         require => Package['supervisor'],
-        content => template("tugg-supervisor.cfg"),
+        content => template("tugg/tugg-supervisor.cfg"),
         mode => 744
     }
     service { "supervisor":
@@ -129,7 +129,7 @@ define tugg (
     file {$nginx_config :
         ensure => file,
         recurse=>true,
-        content => template("nginx.cfg"),
+        content => template("tugg/nginx.cfg"),
         require => Package['nginx'],
         mode => 744
     }
