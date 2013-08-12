@@ -76,7 +76,7 @@ define tugg (
 
     # Bootstrap buildout for the main tugg deployment
     exec { "bootstrap":
-        command => "python2.7 /opt/tugg/gigs/bootstrap.py -v 1.7.0 -c /opt/tugg/gigs/buildout.cfg",
+        command => "python2.7 /opt/tugg/gigs/bootstrap.py -v 1.7.0 -c /opt/tugg/gigs/production.cfg",
         require => [Vcsrepo["/opt/tugg/gigs"]],
         #unless => "test -d $path/bin",
         }
