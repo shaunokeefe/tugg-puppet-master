@@ -105,7 +105,7 @@ define tugg (
         ensure => file,
         recurse=>true,
         require => Package['supervisor'],
-        content => template("tugg/tugg-supervisor.cfg"),
+        content => template("tugg/tugg-supervisor.cfg.erb"),
         mode => 744
     }
     service { "supervisor":
