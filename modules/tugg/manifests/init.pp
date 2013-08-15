@@ -66,6 +66,7 @@ define tugg (
       user     => $mysqldb_username,
       password => $mysqldb_password,
       grant    => ['all'],
+      require => [Class['mysql::server'], Class['mysql::config']],
     }
 
     # Add SOLR server and tomcat6
