@@ -4,3 +4,6 @@
 [submodule "modules/puppi"]
 	path = modules/puppi
 	url = git://github.com/example42/puppi.git
+[submodule "modules/tugg"]
+	path = modules/tugg
+	url = git@github.com:shaunokeefe/tugg-puppet.git
