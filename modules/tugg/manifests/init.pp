@@ -144,11 +144,15 @@ define tugg (
         require =>  [Exec['buildout'], 
 		Package['nginx'], File[$nginx_config], Exec['static-media']]
         }
-
+    # Cron job to re-index SOLR as not all changes to data are
+    # automatically pushed to the index atm. 30 mins is fairly frequent
+    # to re-index the index so this should be revisited when user numbers/
+    # number of entries starts to increase
     cron { "searchupdate":
-	command => "/opt/tugg/gigs/bin/django rebuild_index",
-	user    => root,
-	hour    => 1,
-	require =>  Exec['buildout'],
+	command => "/opt/tugg/gigs/bin/django update_index",
+        ensure => present,
+        user => $user_name,
+        hour => absent,
+	minute  => '*/30',
    }
 }
